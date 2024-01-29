@@ -21,4 +21,12 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: name/app
+          images: |
+            rytswd/docker-lab/meta
+            rytswd-docker-lab-meta
+          tags: |
+            type=schedule,pattern={{date 'YYYYMMDD-hhmmss'}}
+            type=ref,event=branch
+            type=ref,event=pr
+            type=edge
+            type=sha
