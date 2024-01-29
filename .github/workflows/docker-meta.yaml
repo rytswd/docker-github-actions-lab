@@ -21,6 +21,12 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
+          # The docker tag "latest" is only generated in certain conditions by
+          # default. The below setup forces that the use of "latest" tag for any
+          # new image generated. You can find more about it in the below ref.
+          # Ref: https://github.com/docker/metadata-action?tab=readme-ov-file#latest-tag
+          flavor: |
+            latest=true
           images: |
             rytswd/docker-lab/meta
             rytswd-docker-lab-meta
