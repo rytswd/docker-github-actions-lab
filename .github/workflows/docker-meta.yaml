@@ -34,11 +34,13 @@ jobs:
             rytswd/docker-lab/meta
             ghcr.io/rytswd/docker-github-actions-lab/exp-with-meta
             docker.io/dummy,enable=false
+          # The type=schedule is only used when the build is triggered by some
+          # schedule.
           # With event=pr, when the action is called for PR, it would have PR
           # reference. However, for a merge commit, this won't be available.
           # With type=sha, short commit ID is generated.
           tags: |
-            type=schedule
+            type=schedule,pattern={{date 'YYYYMMDD-hhmmss'}}
             type=ref,event=branch
             type=ref,event=pr
             type=sha
