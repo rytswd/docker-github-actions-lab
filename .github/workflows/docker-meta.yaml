@@ -34,7 +34,7 @@ jobs:
           # reference. However, for a merge commit, this won't be available.
           # With type=sha, short commit ID is generated.
           tags: |
-            type=schedule,pattern={{date 'YYYYMMDD-hhmmss'}}
+            type=schedule,pattern={{date 'YYYYMMDD-hhmmss' tz='UTC'}}
             type=ref,event=branch
             type=ref,event=pr
             type=sha
