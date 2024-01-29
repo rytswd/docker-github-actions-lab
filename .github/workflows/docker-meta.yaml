@@ -30,9 +30,11 @@ jobs:
           images: |
             rytswd/docker-lab/meta
             rytswd-docker-lab-meta
+          # With event=pr, when the action is called for PR, it would have PR
+          # reference. However, for a merge commit, this won't be available.
+          # With type=sha, short commit ID is generated.
           tags: |
             type=schedule,pattern={{date 'YYYYMMDD-hhmmss'}}
             type=ref,event=branch
             type=ref,event=pr
-            type=edge
             type=sha
